@@ -1,18 +1,17 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
@@ -27,7 +26,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('cake.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -40,21 +39,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <h1><a href=""><?= $this->fetch('title') ?></a></h1>
             </li>
         </ul>
-        <div class="top-bar-section">
+        <section class="top-bar-section">
             <ul class="right">
-        
-                <li><?=$this->Html->link('Logout',['controller'=>'users','action'=> 'logout']); ?></li>
-       
-
-     
-               
+                <?php if($loggedIn) : ?>
+                    <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']); ?></li>
+                <?php else : ?>
+                    <li><?= $this->Html->link('Register', ['controller' => 'users', 'action' => 'register']); ?></li>
+                <?php endif; ?>
             </ul>
-        </div>
+        </section>
     </nav>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <section class="container clearfix">
         <?= $this->fetch('content') ?>
-    </div>
+    </section>
     <footer>
     </footer>
 </body>
